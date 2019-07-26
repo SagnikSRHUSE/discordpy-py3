@@ -16,7 +16,7 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
     # Python3.7
-RUN python3.7 python3-pip python2.7 python-pip libffi-dev mono-complete \
+RUN python3.7 python3-pip libffi-dev mono-complete \
     && pip3 install aiohttp websockets pynacl opuslib libopus0 \
     && python3 -m pip install -U discord.py[voice]
 
