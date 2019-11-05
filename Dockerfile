@@ -21,12 +21,10 @@ ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
     # Python3.7
-RUN python3 -m pip3 install aiohttp websockets pynacl opuslib libopus0 \
-    && python3 -m pip install discord.py[voice]
+RUN python3.7 -m pip install discord.py[voice] 
 
 USER container
 ENV  USER=container HOME=/home/container
-
 
 WORKDIR /home/container
 
