@@ -1,7 +1,11 @@
-FROM debian:stretch
+FROM python:3.7-buster
 
-MAINTAINER Sagnik Sasmal, <sagnik@zadeservers.net>
+MAINTAINER Sagnik Sasmal, <sagnik@@sagnik.me>
 
+# Ignore APT warnings about not having a TTY
+ENV DEBIAN_FRONTEND noninteractive
+
+# Install OS deps
 RUN apt-get update \
     && apt-get dist-upgrade -y \
     && apt-get autoremove -y \
@@ -12,13 +16,13 @@ RUN apt-get update \
     # Ensure UTF-8
 RUN sed -i 's/^# *\(en_US.UTF-8\)/\1/' /etc/locale.gen \
     && locale-gen
+
 ENV LANG en_US.UTF-8
 ENV LC_ALL en_US.UTF-8
 
     # Python3.7
-RUN python3.7 python3-pip libffi-dev mono-complete \
-    && pip3 install aiohttp websockets pynacl opuslib libopus0 \
-    && python3 -m pip install -U discord.py[voice]
+RUN python3 -m pip3 install aiohttp websockets pynacl opuslib libopus0 \
+    && python3 -m pip install discord.py[voice]
 
 USER container
 ENV  USER=container HOME=/home/container
