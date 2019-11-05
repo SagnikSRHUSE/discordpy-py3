@@ -1,2 +1,2 @@
-# discordpy-py3
-DiscordPy Dockerfile w/ Python 3
+# discordpy-py3.7
+DiscordPy Dockerfile w/ Python 3.7
