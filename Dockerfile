@@ -11,6 +11,7 @@ RUN apt-get update \
     && apt-get autoremove -y \
     && apt-get autoclean \
     && apt-get -y install dirmngr curl software-properties-common locales git cmake \
+    && apt-get -y install libopus0 \
     && adduser -D -h /home/container container
 
     # Ensure UTF-8
